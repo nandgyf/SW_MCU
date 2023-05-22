@@ -62,7 +62,10 @@ always @(posedge in_clk or negedge in_rst) begin
     end
     else begin
         if(in_wen) begin
-            regfile[in_waddr] <= in_wdata;
+            if(in_waddr == 0) // Prohibit wrting reg0
+                regfile[in_waddr] <= regfile[in_waddr];
+            else
+                regfile[in_waddr] <= in_wdata;
         end
         else begin
 			regfile[in_waddr] <= regfile[in_waddr];

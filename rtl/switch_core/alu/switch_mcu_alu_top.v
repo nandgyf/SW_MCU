@@ -183,15 +183,46 @@ switch_mcu_alu_auipc switch_mcu_alu_auipc_dut(
     .out_wdata       (auipc_wdata   )
 );
 
+// ADDI
+wire [4:0]  addi_raddr_1 ;
+wire        addi_ren_1   ;
+
+wire [4:0]  addi_waddr   ;
+wire [31:0] addi_wdata   ;
+wire        addi_wen     ;
+switch_mcu_alu_addi switch_mcu_alu_addi_dut (
+  .in_clk            (in_clk        ),
+  .in_rst            (in_rst        ),
+  .in_cycle_cnt      (in_cycle_cnt  ),
+  .in_en             (in_addi       ),
+  .in_imm_type_i     (in_imm_type_i ),
+  .in_rs1            (in_rs1        ),
+  .in_rd             (in_rd         ),
+  .in_rdata_1        (mid_rdata_1   ),
+  .out_raddr_1       (addi_raddr_1  ),
+  .out_ren_1         (addi_ren_1    ),
+  .out_waddr         (addi_waddr    ),
+  .out_wen           (addi_wen      ),
+  .out_wdata         (addi_wdata    )
+);
+
+
 // Enable arbiter
-assign mid_wen      =   lui_wen | auipc_wen;
+assign mid_wen      =   lui_wen | auipc_wen | addi_wen;
 // Write data arbiter
 assign mid_wdata    =   lui_wen      ?   lui_wdata     :
                         auipc_wen    ?   auipc_wdata   :
+                        addi_wen     ?   addi_wdata    :
                         0;
 // Write address arbiter
 assign mid_waddr    =   lui_wen      ?   lui_waddr     :
                         auipc_wen    ?   auipc_waddr   :
+                        addi_wen     ?   addi_waddr    :
+                        0;
+
+assign mid_ren_1    =   addi_ren_1;
+
+assign mid_raddr_1  =   addi_ren_1   ?   addi_raddr_1  :
                         0;
 
 endmodule
