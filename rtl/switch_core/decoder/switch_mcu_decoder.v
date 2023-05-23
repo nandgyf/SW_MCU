@@ -180,7 +180,7 @@ reg [31:0] inst;
 always@(posedge in_clk or negedge in_rst) begin
     if(!in_rst)
         inst <= 0;
-    else if(in_cycle_cnt == 1)
+    else if(in_cycle_cnt == 0)
         inst <= in_inst;
     else
         inst <= inst;

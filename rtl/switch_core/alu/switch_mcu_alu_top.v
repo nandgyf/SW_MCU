@@ -124,9 +124,9 @@ input wire [18:0]  in_imm_type_j  ;
 
 // Wires for regfile operation
 // Write
-wire  [4:0]        mid_waddr       ;
-wire               mid_wen         ;
-wire  [31:0]       mid_wdata       ;
+reg   [4:0]        mid_waddr       ;
+reg                mid_wen         ;
+reg   [31:0]       mid_wdata       ;
 // Read 1
 wire  [4:0]        mid_raddr_1     ;
 wire               mid_ren_1       ;
@@ -206,19 +206,30 @@ switch_mcu_alu_addi switch_mcu_alu_addi_dut (
   .out_wdata         (addi_wdata    )
 );
 
-
-// Enable arbiter
-assign mid_wen      =   lui_wen | auipc_wen | addi_wen;
-// Write data arbiter
-assign mid_wdata    =   lui_wen      ?   lui_wdata     :
-                        auipc_wen    ?   auipc_wdata   :
-                        addi_wen     ?   addi_wdata    :
-                        0;
-// Write address arbiter
-assign mid_waddr    =   lui_wen      ?   lui_waddr     :
-                        auipc_wen    ?   auipc_waddr   :
-                        addi_wen     ?   addi_waddr    :
-                        0;
+// Write signals selection
+always @(posedge in_clk or negedge in_rst) begin
+    if(!in_rst) begin
+        mid_wen <= 0;
+        mid_wdata <= 0;
+        mid_waddr <= 0;
+    end else if(in_lui) begin
+        mid_wen <= lui_wen;
+        mid_wdata <= lui_wdata;
+        mid_waddr <= lui_waddr;
+    end else if(in_auipc) begin
+        mid_wen <= auipc_wen;
+        mid_wdata <= auipc_wdata;
+        mid_waddr <= auipc_waddr;
+    end else if(in_addi) begin
+        mid_wen <= addi_wen;
+        mid_wdata <= addi_wdata;
+        mid_waddr <= addi_waddr;
+    end else begin
+        mid_wen <= 0;
+        mid_wdata <= 0;
+        mid_waddr <= 0;
+    end
+end
 
 assign mid_ren_1    =   addi_ren_1;
 

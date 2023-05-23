@@ -50,6 +50,9 @@ output  reg  [3:0]    out_cycle_cnt ;
 reg  [1:0]            state           ;
 wire [1:0]            next_state      ;
 
+// Temp instruction
+reg  [31:0]           temp_inst       ;
+
 // pc_reg singal
 always @(posedge in_clk or negedge in_rst) begin
     if(!in_rst)
@@ -64,7 +67,7 @@ end
 always@(posedge in_clk or negedge in_rst) begin
     if(!in_rst | !in_init_done)
     out_cycle_cnt <= 0;
-    else if(out_cycle_cnt == 3)
+    else if(out_cycle_cnt == 4)
         if(state == IDLE)
             out_cycle_cnt <= 0;
         else
@@ -80,6 +83,7 @@ always @(posedge in_clk or negedge in_rst) begin
         out_htrans <= 0;
         out_haddr <= 0;
         out_inst <= 0;
+        temp_inst <= 0;
     end else begin
         case(state)
             IDLE:
@@ -87,45 +91,55 @@ always @(posedge in_clk or negedge in_rst) begin
                     state <= STATE1;
                     out_htrans <= 1;
                     out_haddr <= out_pc_reg;
-                    out_inst <= out_inst;
+                    temp_inst <= temp_inst;
                 end else begin
                     state <= IDLE;
                     out_htrans <= 0;
                     out_haddr <= 0;
-                    out_inst <= out_inst;
+                    temp_inst <= temp_inst;
                 end
             STATE1:
                 if(in_hready) begin
                     state <= STATE2;
                     out_htrans <= 0;
                     out_haddr <= 0;
-                    out_inst <= out_inst;
+                    temp_inst <= temp_inst;
                 end else begin
                     state <= STATE1;
                     out_htrans <= out_htrans;
                     out_haddr <= out_haddr;
-                    out_inst <= out_inst;
+                    temp_inst <= temp_inst;
                 end
             STATE2:
                 if(in_hready) begin
                     state <= IDLE;
                     out_htrans <= 0;
                     out_haddr <= 0;
-                    out_inst <= in_hrdata;
+                    temp_inst <= in_hrdata;
                 end else begin
                     state <= STATE2;
                     out_htrans <= 0;
                     out_haddr <= 0;
-                    out_inst <= out_inst;
+                    temp_inst <= temp_inst;
                 end
             default: begin
                 state <= IDLE;
                 out_htrans <= 0;
                 out_haddr <= 0;
-                out_inst <= out_inst;
+                temp_inst <= temp_inst;
             end
         endcase
     end
+end
+
+// Instruction update
+always @(posedge in_clk or negedge in_rst) begin
+    if(!in_rst)
+        out_inst <= 0;
+    else if(out_cycle_cnt == 0)
+        out_inst <= temp_inst;
+    else
+        out_inst <= out_inst;
 end
 
 // out_hwrite

@@ -34,30 +34,6 @@ output reg [4:0]     out_waddr       ;
 output reg           out_wen         ;
 output reg [31:0]    out_wdata       ;
 
-// State machine reg
-reg        [2:0]     state           ;
-// State parameters
-parameter IDLE = 0, READ = 1, WAIT = 2, WRITE = 3;
-
-// Tiny state machine
-always@(posedge in_clk or negedge in_rst) begin
-    if(!in_rst)
-        state <= 0;
-    else begin
-        case(state)
-            IDLE:
-                if(in_cycle_cnt == 0 && in_en)
-                    state <= READ;
-            READ:
-                state <= WAIT;
-            WAIT:
-                state <= WRITE;
-            WRITE:
-                state <= IDLE;
-        endcase
-    end
-end
-
 always@(posedge in_clk or negedge in_rst) begin
     if(!in_rst) begin
         out_raddr_1 <= 0;
@@ -66,27 +42,29 @@ always@(posedge in_clk or negedge in_rst) begin
         out_waddr <= 0;
         out_wen   <= 0;
         out_wdata <= 0;
-    end else if(state == READ) begin
-        out_raddr_1 <= in_rs1;
-        out_ren_1 <= 1;
+    end else if(in_en)begin
+        if(in_cycle_cnt == 1) begin
+            out_raddr_1 <= in_rs1;
+            out_ren_1 <= 1;
 
-        out_waddr <= in_rd;
-        out_wen   <= 0;
-        out_wdata <= {{20{in_imm_type_i[11]}}, in_imm_type_i};
-    end else if(state == WAIT) begin
-        out_raddr_1 <= 0;
-        out_ren_1 <= 0;
+            out_waddr <= 0;
+            out_wen   <= 0;
+            out_wdata <= 0;
+        end else if(in_cycle_cnt == 2) begin
+            out_raddr_1 <= 0;
+            out_ren_1 <= 0;
 
-        out_waddr <= out_waddr;
-        out_wen   <= 0;
-        out_wdata <= out_wdata;
-    end else if(state == WRITE)begin
-        out_raddr_1 <= 0;
-        out_ren_1 <= 0;
+            out_waddr <= 0;
+            out_wen   <= 0;
+            out_wdata <= 0;
+        end else if(in_cycle_cnt == 3)begin
+            out_raddr_1 <= 0;
+            out_ren_1 <= 0;
 
-        out_waddr <= out_waddr;
-        out_wen   <= 1;
-        out_wdata <= out_wdata + in_rdata_1;
+            out_waddr <= in_rd;
+            out_wen   <= 1;
+            out_wdata <= {{20{in_imm_type_i[11]}}, in_imm_type_i} + in_rdata_1;
+        end
     end else begin
         out_raddr_1 <= 0;
         out_ren_1   <= 0;
