@@ -394,7 +394,9 @@ wire        mid_type_r_en      ;
 
 
 // Ex-unit enable signals
-assign mid_type_r_en = in_add | in_sub | in_sll | in_slt | in_sltu;
+assign mid_type_r_en =  in_add  | in_sub | in_sll | in_slt | 
+                        in_sltu | in_xor | in_srl | in_sra |
+                        in_or   | in_and ;
 
 switch_mcu_ex_type_r switch_mcu_ex_type_r_dut (
   .in_clk            (in_clk            ),
@@ -406,6 +408,11 @@ switch_mcu_ex_type_r switch_mcu_ex_type_r_dut (
   .in_sll            (in_sll            ),
   .in_slt            (in_slt            ),
   .in_sltu           (in_sltu           ),
+  .in_xor            (in_xor            ),
+  .in_srl            (in_srl            ),
+  .in_sra            (in_sra            ),
+  .in_or             (in_or             ),
+  .in_and            (in_and            ),
   .in_rs1            (in_rs1            ),
   .in_rs2            (in_rs2            ),
   .in_rd             (in_rd             ),

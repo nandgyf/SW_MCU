@@ -9,6 +9,11 @@ module switch_mcu_ex_type_r (
     in_sll                              ,
     in_slt                              ,
     in_sltu                             ,
+    in_xor                              ,
+    in_srl                              ,
+    in_sra                              ,
+    in_or                               ,
+    in_and                              ,
     in_rs1                              ,
     in_rs2                              ,
     in_rd                               ,
@@ -36,6 +41,11 @@ input  wire          in_sub             ;
 input  wire          in_sll             ;
 input  wire          in_slt             ;
 input  wire          in_sltu            ;
+input  wire          in_xor             ;
+input  wire          in_srl             ;
+input  wire          in_sra             ;
+input  wire          in_or              ;
+input  wire          in_and             ;
 input  wire [4:0]    in_rs1             ;
 input  wire [4:0]    in_rs2             ;
 input  wire [4:0]    in_rd              ;
@@ -114,6 +124,16 @@ always@(posedge in_clk or negedge in_rst) begin
                 out_wdata <= $signed(in_rdata_1) < $signed(in_rdata_2);
             else if(in_sltu)
                 out_wdata <= in_rdata_1 < in_rdata_2;
+            else if(in_xor)
+                out_wdata <= in_rdata_1 ^ in_rdata_2;
+            else if(in_srl)
+                out_wdata <= in_rdata_1 >> in_rdata_2[4:0];
+            else if(in_sra)
+                out_wdata <= $signed(in_rdata_1) >>> in_rdata_2[4:0];
+            else if(in_or)
+                out_wdata <= in_rdata_1 | in_rdata_2;
+            else if(in_and)
+                out_wdata <= in_rdata_1 & in_rdata_2;
             else
                 out_wdata <= 0;
         end else if(in_cycle_cnt == 0) begin
