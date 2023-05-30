@@ -31,7 +31,7 @@ switch_mcu_dummy_sram switch_mcu_dummy_sram_dut (
   .out_hrdata       (mid_hrdata )
 );
 
-switch_mcu_exe_top switch_mcu_exe_top_dut (
+switch_mcu_core_top switch_mcu_core_top_dut (
 .in_clk             (mid_clk ),
 .in_rst             (mid_rst ),
 .in_init_done       (mid_init_done ),
@@ -51,12 +51,12 @@ initial begin
   begin
     mid_rst = 0;
     mid_init_done = 0;
-    #10;
+    #20;
     mid_rst = 1;
     #50;
     mid_init_done = 1;
     #10;
-    #400;
+    #1600;
     $stop;
   end
 end

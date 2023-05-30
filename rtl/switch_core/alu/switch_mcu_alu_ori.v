@@ -1,4 +1,4 @@
-module switch_mcu_alu_addi (
+module switch_mcu_alu_ori (
     in_clk                              ,
     in_rst                              ,
     in_cycle_cnt                        ,
@@ -70,7 +70,7 @@ always@(posedge in_clk or negedge in_rst) begin
 
             out_waddr <= in_rd;
             out_wen   <= 1;
-            out_wdata <= {{20{in_imm_type_i[11]}}, in_imm_type_i} + in_rdata_1;
+            out_wdata <= in_rdata_1 | {{20{in_imm_type_i[11]}}, in_imm_type_i};
         end
     end else begin
         out_raddr_1 <= 0;

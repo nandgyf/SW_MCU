@@ -55,9 +55,10 @@ reg  [31:0]           temp_inst       ;
 
 // pc_reg singal
 always @(posedge in_clk or negedge in_rst) begin
-    if(!in_rst)
-        out_pc_reg <= 0;
-    else if(out_cycle_cnt == 1)
+    if(!in_rst | !in_init_done)
+        // First cycle is used for fetch instruction
+        out_pc_reg <= -4;
+    else if(out_cycle_cnt == 0)
         out_pc_reg <= out_pc_reg + 4;
     else
         out_pc_reg <= out_pc_reg;
@@ -66,7 +67,7 @@ end
 // Counter logic
 always@(posedge in_clk or negedge in_rst) begin
     if(!in_rst | !in_init_done)
-    out_cycle_cnt <= 0;
+        out_cycle_cnt <= 0;
     else if(out_cycle_cnt == 4)
         if(state == IDLE)
             out_cycle_cnt <= 0;

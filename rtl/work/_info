@@ -1,0 +1,451 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nand/Documents/onWorking/SW_MCU/rtl
+vcycle_cnt
+Z1 !s110 1685326706
+!i10b 1
+!s100 :dK?5FW2CFQNVH:PVXY882
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I;DIZWo@G4^YGVKJAbldm91
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1684902528
+8./switch_core/cycle_cnt.v
+F./switch_core/cycle_cnt.v
+!i122 3
+L0 1 23
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1685326706.000000
+!s107 ./peripherals/switch_mcu_spi2ahb.v|./switch_mcu_exe_top_tb.v|./switch_mcu_exe_top.v|./sram/switch_mcu_dummy_sram.v|./switch_core/cycle_cnt.v|./switch_core/alu/switch_mcu_alu_srai.v|./switch_core/alu/switch_mcu_alu_xori.v|./switch_core/alu/switch_mcu_alu_auipc.v|./switch_core/alu/switch_mcu_alu_slti.v|./switch_core/alu/switch_mcu_alu_srli.v|./switch_core/alu/switch_mcu_alu_lui.v|./switch_core/alu/switch_mcu_alu_sltiu.v|./switch_core/alu/switch_mcu_alu_top.v|./switch_core/alu/switch_mcu_alu_ori.v|./switch_core/alu/switch_mcu_alu_andi.v|./switch_core/alu/switch_mcu_alu_slli.v|./switch_core/alu/switch_mcu_alu_addi.v|./switch_core/ifu/switch_mcu_ifu.v|./switch_core/regfile/switch_mcu_regfile.v|./switch_core/decoder/switch_mcu_decoder.v|
+Z7 !s90 ./switch_core/decoder/switch_mcu_decoder.v|./switch_core/regfile/switch_mcu_regfile.v|./switch_core/ifu/switch_mcu_ifu.v|./switch_core/alu/switch_mcu_alu_addi.v|./switch_core/alu/switch_mcu_alu_slli.v|./switch_core/alu/switch_mcu_alu_andi.v|./switch_core/alu/switch_mcu_alu_ori.v|./switch_core/alu/switch_mcu_alu_top.v|./switch_core/alu/switch_mcu_alu_sltiu.v|./switch_core/alu/switch_mcu_alu_lui.v|./switch_core/alu/switch_mcu_alu_srli.v|./switch_core/alu/switch_mcu_alu_slti.v|./switch_core/alu/switch_mcu_alu_auipc.v|./switch_core/alu/switch_mcu_alu_xori.v|./switch_core/alu/switch_mcu_alu_srai.v|./switch_core/cycle_cnt.v|./sram/switch_mcu_dummy_sram.v|./switch_mcu_exe_top.v|./switch_mcu_exe_top_tb.v|./peripherals/switch_mcu_spi2ahb.v|
+!i113 1
+Z8 tCvgOpt 0
+vswitch_mcu_alu_addi
+R1
+!i10b 1
+!s100 bRTH5JBgDIcSeCm021<2Z1
+R2
+IcnEB[3UiUeG0`oX5;SVEQ0
+R3
+R0
+w1685049266
+8./switch_core/alu/switch_mcu_alu_addi.v
+F./switch_core/alu/switch_mcu_alu_addi.v
+!i122 3
+Z9 L0 1 85
+R5
+r1
+!s85 0
+31
+R6
+Z10 !s107 ./peripherals/switch_mcu_spi2ahb.v|./switch_mcu_exe_top_tb.v|./switch_mcu_exe_top.v|./sram/switch_mcu_dummy_sram.v|./switch_core/cycle_cnt.v|./switch_core/alu/switch_mcu_alu_srai.v|./switch_core/alu/switch_mcu_alu_xori.v|./switch_core/alu/switch_mcu_alu_auipc.v|./switch_core/alu/switch_mcu_alu_slti.v|./switch_core/alu/switch_mcu_alu_srli.v|./switch_core/alu/switch_mcu_alu_lui.v|./switch_core/alu/switch_mcu_alu_sltiu.v|./switch_core/alu/switch_mcu_alu_top.v|./switch_core/alu/switch_mcu_alu_ori.v|./switch_core/alu/switch_mcu_alu_andi.v|./switch_core/alu/switch_mcu_alu_slli.v|./switch_core/alu/switch_mcu_alu_addi.v|./switch_core/ifu/switch_mcu_ifu.v|./switch_core/regfile/switch_mcu_regfile.v|./switch_core/decoder/switch_mcu_decoder.v|
+R7
+!i113 1
+R8
+vswitch_mcu_alu_andi
+R1
+!i10b 1
+!s100 LJ^GVd=lG;j>z5;nCK>T43
+R2
+IV=@h62WBdkf;IejoSA[EV1
+R3
+R0
+w1685324519
+8./switch_core/alu/switch_mcu_alu_andi.v
+F./switch_core/alu/switch_mcu_alu_andi.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_auipc
+R1
+!i10b 1
+!s100 lR@S_okSbTF[6G^`2`^^?0
+R2
+Id_oS3Gmz5Hn7C>XO6no5X3
+R3
+R0
+w1685050900
+8./switch_core/alu/switch_mcu_alu_auipc.v
+F./switch_core/alu/switch_mcu_alu_auipc.v
+!i122 3
+L0 1 50
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_lui
+R1
+!i10b 1
+!s100 ]<63IbH9B0L7hmNNPeVL[2
+R2
+Id8i288:JX[n7oM1>ETiWa3
+R3
+R0
+w1685050914
+8./switch_core/alu/switch_mcu_alu_lui.v
+F./switch_core/alu/switch_mcu_alu_lui.v
+!i122 3
+L0 1 48
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_ori
+R1
+!i10b 1
+!s100 VLoIz;Uhb?c:E;;:c:PNQ2
+R2
+ILgE?1C`Z>7EXhR:?PDZ1R2
+R3
+R0
+w1685071718
+8./switch_core/alu/switch_mcu_alu_ori.v
+F./switch_core/alu/switch_mcu_alu_ori.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_slli
+R1
+!i10b 1
+!s100 f<2zfOAgPCM85:KEMV:za3
+R2
+I=<6OQP94c_PP2hIS:LVSo2
+R3
+R0
+w1685324893
+8./switch_core/alu/switch_mcu_alu_slli.v
+F./switch_core/alu/switch_mcu_alu_slli.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_slti
+R1
+!i10b 1
+!s100 BjK`e;72jTZ0b=4XHoFzj1
+R2
+I:l2e3l<QV61T]jhNHT]XL2
+R3
+R0
+w1685052148
+8./switch_core/alu/switch_mcu_alu_slti.v
+F./switch_core/alu/switch_mcu_alu_slti.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_sltiu
+R1
+!i10b 1
+!s100 MOEn[ZdMaHVU44V]1VN[O3
+R2
+I9eo>>e<jA6^lD6Xk7mD=?0
+R3
+R0
+w1685052182
+8./switch_core/alu/switch_mcu_alu_sltiu.v
+F./switch_core/alu/switch_mcu_alu_sltiu.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_srai
+R1
+!i10b 1
+!s100 ^>KYK46]:zinW;9WLf7fg3
+R2
+IW?L6iLbJcYNdEgL63:=4?1
+R3
+R0
+w1685326166
+8./switch_core/alu/switch_mcu_alu_srai.v
+F./switch_core/alu/switch_mcu_alu_srai.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_srli
+R1
+!i10b 1
+!s100 mzk3[3]VmzKE@<=Xa^ZA?0
+R2
+I^>RFKFcoG[?cBN_D`?3f_1
+R3
+R0
+w1685325469
+8./switch_core/alu/switch_mcu_alu_srli.v
+F./switch_core/alu/switch_mcu_alu_srli.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_top
+R1
+!i10b 1
+!s100 ;OAiEL[X`dz43GSNfY2AX3
+R2
+I>07Q4Z:06=4g`Fd91dRJK2
+R3
+R0
+w1685325776
+8./switch_core/alu/switch_mcu_alu_top.v
+F./switch_core/alu/switch_mcu_alu_top.v
+!i122 3
+L0 1 467
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_alu_xori
+R1
+!i10b 1
+!s100 0i^iIZjd^1L:O7Lnhoidm2
+R2
+IhHK0_COE]^I4Q^]cEN;;<0
+R3
+R0
+w1685052740
+8./switch_core/alu/switch_mcu_alu_xori.v
+F./switch_core/alu/switch_mcu_alu_xori.v
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_decoder
+R1
+!i10b 1
+!s100 ColfnEo5h>=78ES0<mb^Q2
+R2
+IXNXFHNec=b1H<VaP^^IB>2
+R3
+R0
+w1685326678
+8./switch_core/decoder/switch_mcu_decoder.v
+F./switch_core/decoder/switch_mcu_decoder.v
+!i122 3
+L0 1 260
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_dummy_sram
+R1
+!i10b 1
+!s100 Qj[zEif]RZR3J>`_z;YL`1
+R2
+IaEbD[A[Xcz;oLD6kNTA=90
+R3
+R0
+R4
+8./sram/switch_mcu_dummy_sram.v
+F./sram/switch_mcu_dummy_sram.v
+!i122 3
+Z11 L0 1 73
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_exe_top
+R1
+!i10b 1
+!s100 MlQ1?a`5ARQ]5W0^BefzR1
+R2
+I<WCmjbAORJ[BoG9ToZUVS1
+R3
+R0
+R4
+8./switch_mcu_exe_top.v
+F./switch_mcu_exe_top.v
+!i122 3
+L0 1 265
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_exe_top_tb
+R1
+!i10b 1
+!s100 :MkbgHRBUC:6?D]i;mMN62
+R2
+ITNAhjzNNPOJeNFD@SQ]4F0
+R3
+R0
+w1685326502
+8./switch_mcu_exe_top_tb.v
+F./switch_mcu_exe_top_tb.v
+!i122 3
+R11
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_ifu
+R1
+!i10b 1
+!s100 H:znPLIULF13YO<QicU1d1
+R2
+I8j0hK0e0@jMfZc^aATY@21
+R3
+R0
+w1685050728
+8./switch_core/ifu/switch_mcu_ifu.v
+F./switch_core/ifu/switch_mcu_ifu.v
+!i122 3
+L0 1 161
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_regfile
+R1
+!i10b 1
+!s100 UE:o[^[W8^0e89Qol@XSU2
+R2
+IoU5fX>NNeW5KWdYZb5E<^1
+R3
+R0
+w1685326695
+8./switch_core/regfile/switch_mcu_regfile.v
+F./switch_core/regfile/switch_mcu_regfile.v
+!i122 3
+L0 1 106
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+vswitch_mcu_spi2ahb
+R1
+!i10b 1
+!s100 hg`MGm`XaGQgDQQITdR;_3
+R2
+I?Ngfne9OQ:cgPzUdzF7eH1
+R3
+R0
+R4
+8./peripherals/switch_mcu_spi2ahb.v
+F./peripherals/switch_mcu_spi2ahb.v
+!i122 3
+L0 1 13
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8

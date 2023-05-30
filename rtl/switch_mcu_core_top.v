@@ -1,4 +1,4 @@
-module switch_mcu_exe_top(
+module switch_mcu_core_top(
   in_clk          ,
   in_rst          ,
 

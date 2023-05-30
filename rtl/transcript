@@ -1,0 +1,91 @@
+# vsim switch_mcu_exe_top_tb 
+# Start time: 21:18:50 on May 28,2023
+# Loading work.switch_mcu_exe_top_tb
+# Loading work.switch_mcu_dummy_sram
+# Loading work.switch_mcu_exe_top
+# Loading work.switch_mcu_ifu
+# Loading work.switch_mcu_decoder
+# Loading work.switch_mcu_alu_top
+# Loading work.switch_mcu_regfile
+# Loading work.switch_mcu_alu_lui
+# Loading work.switch_mcu_alu_auipc
+# Loading work.switch_mcu_alu_addi
+# Loading work.switch_mcu_alu_slti
+# Loading work.switch_mcu_alu_sltiu
+# Loading work.switch_mcu_alu_xori
+# Loading work.switch_mcu_alu_ori
+# Loading work.switch_mcu_alu_andi
+# Loading work.switch_mcu_alu_slli
+# Loading work.switch_mcu_alu_srli
+# Loading work.switch_mcu_alu_srai
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_dummy_sram_dut'.  Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_dummy_sram_dut File: ./switch_mcu_exe_top_tb.v Line: 19
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_exe_top_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut File: ./switch_mcu_exe_top_tb.v Line: 34
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_ifu_dut'.  Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_ifu_dut File: ./switch_mcu_exe_top.v Line: 96
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_regfile_dut'.  Expected 12, found 11.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_regfile_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 139
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_lui_dut'.  Expected 10, found 9.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_lui_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 157
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_auipc_dut'.  Expected 11, found 10.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_auipc_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 173
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_addi_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_addi_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 192
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_slti_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_slti_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 214
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_sltiu_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_sltiu_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 236
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_xori_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_xori_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 258
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_ori_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_ori_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 280
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_andi_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_andi_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 302
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_slli_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_slli_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 324
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_srli_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_srli_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 346
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_srai_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_srai_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 368
+add wave -position insertpoint sim:/switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_srai_dut/*
+run
+run -all
+# ** Note: $stop    : ./switch_mcu_exe_top_tb.v(60)
+#    Time: 1080 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb
+# Break in Module switch_mcu_exe_top_tb at ./switch_mcu_exe_top_tb.v line 60
+run -all
+restart
+# Closing VCD file "wave.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_dummy_sram_dut'.  Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_dummy_sram_dut File: ./switch_mcu_exe_top_tb.v Line: 19
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_exe_top_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut File: ./switch_mcu_exe_top_tb.v Line: 34
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_ifu_dut'.  Expected 17, found 16.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_ifu_dut File: ./switch_mcu_exe_top.v Line: 96
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_regfile_dut'.  Expected 12, found 11.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_regfile_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 139
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_lui_dut'.  Expected 10, found 9.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_lui_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 157
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_auipc_dut'.  Expected 11, found 10.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_auipc_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 173
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_addi_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_addi_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 192
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_slti_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_slti_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 214
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_sltiu_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_sltiu_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 236
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_xori_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_xori_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 258
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_ori_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_ori_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 280
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_andi_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_andi_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 302
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_slli_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_slli_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 324
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_srli_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_srli_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 346
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'switch_mcu_alu_srai_dut'.  Expected 14, found 13.
+#    Time: 0 ps  Iteration: 0  Instance: /switch_mcu_exe_top_tb/switch_mcu_exe_top_dut/switch_mcu_alu_top_dut/switch_mcu_alu_srai_dut File: ./switch_core/alu/switch_mcu_alu_top.v Line: 368
+run

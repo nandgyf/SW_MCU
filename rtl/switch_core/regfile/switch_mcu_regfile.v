@@ -42,7 +42,7 @@ output reg [31:0] out_rdata_2;
 input wire in_ren_2;
 
 // Regsiters File
-reg [31:0] [31:0] regfile;
+reg [31:0] regfile [31:0];
 
 // Singals to debug
 wire [31:0] regfile0 = regfile[0];

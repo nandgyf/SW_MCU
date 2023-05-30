@@ -124,12 +124,15 @@ output wire [11:0]  out_imm_type_b  ;
 output wire [19:0]  out_imm_type_u  ;
 output wire [18:0]  out_imm_type_j  ;
 
+// Regsiter to buffer instructions
+reg [31:0] inst;
+
 // Signals used for decoding
 wire [3:0] inst_31_16 = inst[31:16];
 wire [3:0] inst_31_28 = inst[31:28];
 wire [3:0] inst_19_15 = inst[19:15];
 wire [3:0] inst_11_7  = inst[11:7];
-wire [2:0] inst_31_25 = inst[31:25];
+wire [6:0] inst_31_25 = inst[31:25];
 wire [2:0] inst_14_12 = inst[14:12];
 wire [6:0] inst_6_0   = inst[6:0];
 
@@ -148,8 +151,8 @@ wire inst_19_15_equal_00000 = (inst_19_15 == 'b00000);
 wire inst_11_7_equal_00000 = (inst_11_7 == 'b00000);
 
 // 31:25 bits decoder
-wire inst_31_25_equal_0000000   = (inst_14_12 == 'b0000000);
-wire inst_31_25_equal_0100000   = (inst_14_12 == 'b0100000);
+wire inst_31_25_equal_0000000   = (inst_31_25 == 'b0000000);
+wire inst_31_25_equal_0100000   = (inst_31_25 == 'b0100000);
 
 // 14:12 bits decoder
 wire inst_14_12_equal_000   = (inst_14_12 == 'b000);
@@ -172,9 +175,6 @@ wire inst_6_0_equal_1101111 = (inst_6_0 == 'b1101111);
 wire inst_6_0_equal_0110011 = (inst_6_0 == 'b0110011);
 wire inst_6_0_equal_0001111 = (inst_6_0 == 'b0001111);
 wire inst_6_0_equal_1110011 = (inst_6_0 == 'b1110011);
-
-// Regsiter to buffer instructions
-reg [31:0] inst;
 
 // Refresh instruction every cycle
 always@(posedge in_clk or negedge in_rst) begin
