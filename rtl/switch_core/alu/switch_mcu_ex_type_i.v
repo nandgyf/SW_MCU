@@ -1,9 +1,18 @@
-module switch_mcu_alu_srai (
+module switch_mcu_ex_type_i (
     in_clk                              ,
     in_rst                              ,
     in_cycle_cnt                        ,
 
     in_en                               ,
+    in_addi                             ,
+    in_slti                             ,
+    in_sltiu                            ,
+    in_xori                             ,
+    in_ori                              ,
+    in_andi                             ,
+    in_slli                             ,
+    in_srli                             ,
+    in_srai                             ,
     in_imm_type_i                       ,
     in_rs1                              ,
     in_rd                               ,
@@ -22,6 +31,15 @@ input  wire          in_rst             ;
 input  wire [3:0]    in_cycle_cnt       ;
 // Signals from decoder 
 input  wire          in_en              ;
+input  wire          in_addi            ;
+input  wire          in_slti            ;
+input  wire          in_sltiu           ;
+input  wire          in_xori            ;
+input  wire          in_ori             ;
+input  wire          in_andi            ;
+input  wire          in_slli            ;
+input  wire          in_srli            ;
+input  wire          in_srai            ;
 input  wire [11:0]   in_imm_type_i      ;
 input  wire [4:0]    in_rs1             ;
 input  wire [4:0]    in_rd              ;
@@ -70,7 +88,26 @@ always@(posedge in_clk or negedge in_rst) begin
 
             out_waddr <= in_rd;
             out_wen   <= 1;
-            out_wdata <= $signed(in_rdata_1) >>> in_imm_type_i[4:0];
+            if(in_addi)
+                out_wdata <= {{20{in_imm_type_i[11]}}, in_imm_type_i} + in_rdata_1;
+            else if(in_slti)
+                out_wdata <= $signed(in_rdata_1) < $signed({{20{in_imm_type_i[11]}}, in_imm_type_i});
+            else if(in_sltiu)
+                out_wdata <= in_rdata_1 < {{20{in_imm_type_i[11]}}, in_imm_type_i};
+            else if(in_xori)
+                out_wdata <= in_rdata_1 ^ {{20{in_imm_type_i[11]}}, in_imm_type_i};
+            else if(in_ori)
+                out_wdata <= in_rdata_1 | {{20{in_imm_type_i[11]}}, in_imm_type_i};
+            else if(in_andi)
+                out_wdata <= in_rdata_1 & {{20{in_imm_type_i[11]}}, in_imm_type_i};
+            else if(in_slli)
+                out_wdata <= in_rdata_1 << in_imm_type_i[4:0];
+            else if(in_srli)
+                out_wdata <= in_rdata_1 >> in_imm_type_i[4:0];
+            else if(in_srai)
+                out_wdata <= $signed(in_rdata_1) >>> in_imm_type_i[4:0];
+            else
+                out_wdata <= 0;
         end
     end else begin
         out_raddr_1 <= 0;
