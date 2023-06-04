@@ -1,45 +1,45 @@
 module switch_mcu_regfile (
-    in_clk,
-    in_rst,
+    in_clk                      ,
+    in_rst                      ,
 
-    in_waddr,
-    in_wen,
-    in_wdata,
+    in_gpr_waddr                ,
+    in_gpr_wen                  ,
+    in_gpr_wdata                ,
 
-    in_raddr_1,
-    in_ren_1,
-    out_rdata_1,
+    in_gpr_raddr_1              ,
+    in_gpr_ren_1                ,
+    out_gpr_rdata_1             ,
 
-    in_raddr_2,
-    in_ren_2,
-    out_rdata_2,
+    in_gpr_raddr_2              ,
+    in_gpr_ren_2                ,
+    out_gpr_rdata_2             ,
 );
 
 input wire in_clk, in_rst;
 
 /* WRITE PORT */
 // Regsiter write address
-input wire [4:0] in_waddr;
+input wire [4:0] in_gpr_waddr;
 // Regsiter write data
-input wire [31:0] in_wdata;
+input wire [31:0] in_gpr_wdata;
 // Regsiter write enable
-input wire in_wen;
+input wire in_gpr_wen;
 
 /* READ PORT 1 */
 // Regsiter read address
-input wire [4:0] in_raddr_1;
+input wire [4:0] in_gpr_raddr_1;
 // Regsiter read data
-output reg [31:0] out_rdata_1;
+output reg [31:0] out_gpr_rdata_1;
 // Regsiter read enable
-input wire in_ren_1;
+input wire in_gpr_ren_1;
 
 /* READ PORT 2 */
 // Regsiter read address
-input wire [4:0] in_raddr_2;
+input wire [4:0] in_gpr_raddr_2;
 // Regsiter read data
-output reg [31:0] out_rdata_2;
+output reg [31:0] out_gpr_rdata_2;
 // Regsiter read enable
-input wire in_ren_2;
+input wire in_gpr_ren_2;
 
 // Regsiters File
 reg [31:0] regfile [31:0];
@@ -61,14 +61,14 @@ always @(posedge in_clk or negedge in_rst) begin
         end
     end
     else begin
-        if(in_wen) begin
-            if(in_waddr == 0) // Prohibit wrting reg0
-                regfile[in_waddr] <= regfile[in_waddr];
+        if(in_gpr_wen) begin
+            if(in_gpr_waddr == 0) // Prohibit wrting reg0
+                regfile[in_gpr_waddr] <= regfile[in_gpr_waddr];
             else
-                regfile[in_waddr] <= in_wdata;
+                regfile[in_gpr_waddr] <= in_gpr_wdata;
         end
         else begin
-			regfile[in_waddr] <= regfile[in_waddr];
+			regfile[in_gpr_waddr] <= regfile[in_gpr_waddr];
         end
     end
 end
@@ -76,14 +76,14 @@ end
 // READ PORT 1
 always @(posedge in_clk or negedge in_rst) begin
     if(!in_rst) begin
-        out_rdata_1 <= 32'h0000;
+        out_gpr_rdata_1 <= 32'h0000;
     end
     else begin
-        if(in_ren_1) begin
-            out_rdata_1 <= regfile[in_raddr_1];
+        if(in_gpr_ren_1) begin
+            out_gpr_rdata_1 <= regfile[in_gpr_raddr_1];
         end
         else begin
-            out_rdata_1 <= 32'h0000;
+            out_gpr_rdata_1 <= 32'h0000;
         end
     end
 end
@@ -91,14 +91,14 @@ end
 // READ PORT 2
 always @(posedge in_clk or negedge in_rst) begin
     if(!in_rst) begin
-        out_rdata_2 <= 32'h0000;
+        out_gpr_rdata_2 <= 32'h0000;
     end
     else begin
-        if(in_ren_2) begin
-            out_rdata_2 <= regfile[in_raddr_2];
+        if(in_gpr_ren_2) begin
+            out_gpr_rdata_2 <= regfile[in_gpr_raddr_2];
         end
         else begin
-            out_rdata_2 <= 32'h0000;
+            out_gpr_rdata_2 <= 32'h0000;
         end
     end
 end

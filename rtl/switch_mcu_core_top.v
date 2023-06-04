@@ -18,7 +18,6 @@ module switch_mcu_core_top(
 // Global signals
 input  wire in_clk                   ;
 input  wire in_rst                   ;
-
 // IFU AHB Bus signals
 input  wire          in_init_done    ;
 input  wire          in_hready       ;
@@ -31,11 +30,6 @@ output wire [3:0]    out_hport       ;
 output wire [2:0]    out_hburst      ;
 output wire [1:0]    out_htrans      ;
 output wire          out_hmastlock   ;
-
-wire        [31:0]   mid_pc_reg      ;
-wire        [31:0]   mid_inst        ;
-wire        [3:0]    mid_cycle_cnt   ;
-
 // Decoeder signals
 wire          mid_lui         ;
 wire          mid_auipc       ;
@@ -92,24 +86,33 @@ wire [11:0]   mid_imm_type_s  ;
 wire [11:0]   mid_imm_type_b  ;
 wire [19:0]   mid_imm_type_u  ;
 wire [18:0]   mid_imm_type_j  ;
+// Core cycle counter signals
+wire [31:0]   mid_inst        ;
+wire [3:0]    mid_cycle_cnt   ;
+wire          mid_pc_override ;
+// PC reg signals
+wire [31:0]   mid_pc_write    ;
+wire [31:0]   mid_pc_reg      ;
 
 switch_mcu_ifu switch_mcu_ifu_dut (
-.in_clk          (in_clk        ),
-.in_rst          (in_rst        ),
-.in_init_done    (in_init_done  ),
-.in_hready       (in_hready     ),
-.in_hresp        (in_hresp      ),
-.in_hrdata       (in_hrdata     ),
-.out_haddr       (out_haddr     ),
-.out_hwrite      (out_hwrite    ),
-.out_hsize       (out_hsize     ),
-.out_hburst      (out_hburst    ),
-.out_hport       (out_hport     ),
-.out_htrans      (out_htrans    ),
-.out_hmastlock   (out_hmastlock ),
-.out_pc_reg      (mid_pc_reg    ),
-.out_inst        (mid_inst      ),
-.out_cycle_cnt   (mid_cycle_cnt )
+.in_clk         (in_clk         ),
+.in_rst         (in_rst         ),
+.in_init_done   (in_init_done   ),
+.in_hready      (in_hready      ),
+.in_hresp       (in_hresp       ),
+.in_hrdata      (in_hrdata      ),
+.out_haddr      (out_haddr      ),
+.out_hwrite     (out_hwrite     ),
+.out_hsize      (out_hsize      ),
+.out_hburst     (out_hburst     ),
+.out_hport      (out_hport      ),
+.out_htrans     (out_htrans     ),
+.out_hmastlock  (out_hmastlock  ),
+.out_inst       (mid_inst       ),
+.out_cycle_cnt  (mid_cycle_cnt  ),
+.out_pc_reg     (mid_pc_reg     ),
+.in_pc_override (mid_pc_override),
+.in_pc_write    (mid_pc_write   )
 );
 
 switch_mcu_decoder switch_mcu_decoder_dut (
@@ -178,7 +181,6 @@ switch_mcu_alu_top switch_mcu_alu_top_dut (
 .in_clk         (in_clk         ),
 .in_rst         (in_rst         ),
 .in_cycle_cnt   (mid_cycle_cnt  ),
-.in_pc_reg      (mid_pc_reg     ),
 .in_lui         (mid_lui        ),
 .in_auipc       (mid_auipc      ),
 .in_jal         (mid_jal        ),
@@ -233,7 +235,10 @@ switch_mcu_alu_top switch_mcu_alu_top_dut (
 .in_imm_type_s  (mid_imm_type_s ),
 .in_imm_type_b  (mid_imm_type_b ),
 .in_imm_type_u  (mid_imm_type_u ),
-.in_imm_type_j  (mid_imm_type_j )
+.in_imm_type_j  (mid_imm_type_j ),
+.in_pc_reg      (mid_pc_reg     ),
+.out_pc_override(mid_pc_override),
+.out_pc_write   (mid_pc_write   )
 );
 
 // initial begin

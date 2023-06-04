@@ -136,7 +136,7 @@ always@(posedge in_clk or negedge in_rst) begin
                 out_wdata <= in_rdata_1 & in_rdata_2;
             else
                 out_wdata <= 0;
-        end else if(in_cycle_cnt == 0) begin
+        end else begin
             out_raddr_1 <= 0;
             out_ren_1 <= 0;
 

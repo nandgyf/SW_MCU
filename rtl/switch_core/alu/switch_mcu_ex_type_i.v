@@ -108,7 +108,14 @@ always@(posedge in_clk or negedge in_rst) begin
                 out_wdata <= $signed(in_rdata_1) >>> in_imm_type_i[4:0];
             else
                 out_wdata <= 0;
-        end
+            end else begin
+                out_raddr_1 <= 0;
+                out_ren_1 <= 0;
+    
+                out_waddr <= 0;
+                out_wen   <= 0;
+                out_wdata <= 0;
+            end
     end else begin
         out_raddr_1 <= 0;
         out_ren_1   <= 0;

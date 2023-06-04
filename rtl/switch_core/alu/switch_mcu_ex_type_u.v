@@ -41,7 +41,7 @@ always@(posedge in_clk or negedge in_rst) begin
             if(in_lui)
                 out_wdata <= in_imm_type_u << 12;
             else if(in_auipc)
-                out_wdata <= (in_imm_type_u << 12) + (in_pc_reg - 4);
+                out_wdata <= (in_imm_type_u << 12) + (in_pc_reg - 8);
             else
                 out_wdata <= 0;
         end else begin

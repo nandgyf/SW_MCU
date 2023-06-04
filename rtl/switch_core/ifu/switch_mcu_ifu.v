@@ -15,15 +15,17 @@ module switch_mcu_ifu (
     out_htrans      ,
     out_hmastlock   ,
 
-    out_pc_reg      ,
     out_inst        ,
     out_cycle_cnt   ,
+    
+    in_pc_override  ,
+    in_pc_write     ,
+    out_pc_reg      ,
 );
 // State machine parameters
 parameter   IDLE = 3'd0     ,
             STATE1 = 3'd1   ,
             STATE2 = 3'd2   ;
-
 // Global signals
 input   wire          in_clk          ;
 input   wire          in_rst          ;
@@ -44,14 +46,15 @@ output  reg  [31:0]   out_pc_reg      ;
 // Instructions putput
 output  reg  [31:0]   out_inst        ;
 // Counter
-output  reg  [3:0]    out_cycle_cnt ;
-
+output  reg  [3:0]    out_cycle_cnt   ;
 // State machine signals
-reg  [1:0]            state           ;
-wire [1:0]            next_state      ;
-
+reg          [1:0]    state           ;
+wire         [1:0]    next_state      ;
 // Temp instruction
-reg  [31:0]           temp_inst       ;
+reg          [31:0]   temp_inst       ;
+// PC control from Ex-u
+input wire            in_pc_override  ;
+input wire   [31:0]   in_pc_write     ;
 
 // pc_reg singal
 always @(posedge in_clk or negedge in_rst) begin
@@ -59,7 +62,10 @@ always @(posedge in_clk or negedge in_rst) begin
         // First cycle is used for fetch instruction
         out_pc_reg <= -4;
     else if(out_cycle_cnt == 0)
-        out_pc_reg <= out_pc_reg + 4;
+        if(in_pc_override)
+            out_pc_reg <= in_pc_write;
+        else
+            out_pc_reg <= out_pc_reg + 4;
     else
         out_pc_reg <= out_pc_reg;
 end
