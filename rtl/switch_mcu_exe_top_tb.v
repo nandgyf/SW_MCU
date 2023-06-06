@@ -56,7 +56,7 @@ initial begin
     #50;
     mid_init_done = 1;
     #10;
-    #1600;
+    #2400;
     $stop;
   end
 end

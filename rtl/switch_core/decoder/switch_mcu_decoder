@@ -581,14 +581,14 @@ always @(posedge in_clk or negedge in_rst) begin
         out_type_r_en <= 0;
         out_type_j_en <= 0;
     end else if(in_cycle_cnt == 0) begin
-        out_type_u_en <=   (comb_lui  | comb_auipc) & !in_stall ;
-        out_type_i_en <=   (comb_addi | comb_slti | comb_sltiu | comb_xori |
+        out_type_u_en =     comb_lui  | comb_auipc ;
+        out_type_i_en =     comb_addi | comb_slti | comb_sltiu | comb_xori |
                             comb_ori  | comb_andi | comb_slli  | comb_srli |
-                            comb_srai) & !in_stall ;
-        out_type_r_en <=   (comb_add  | comb_sub | comb_sll | comb_slt | 
+                            comb_srai ;
+        out_type_r_en =     comb_add  | comb_sub | comb_sll | comb_slt | 
                             comb_sltu | comb_xor | comb_srl | comb_sra |
-                            comb_or   | comb_and) & !in_stall;
-        out_type_j_en <=   (comb_jal  | comb_jalr) & !in_stall ;
+                            comb_or   | comb_and ;
+        out_type_j_en =     comb_jal  | comb_jalr ;
     end else begin
         out_type_u_en <= out_type_u_en;
         out_type_i_en <= out_type_i_en;

@@ -78,6 +78,10 @@ wire          mid_csrrc       ;
 wire          mid_csrrwi      ;
 wire          mid_csrrsi      ;
 wire          mid_csrrci      ;
+wire          mid_type_u_en   ;
+wire          mid_type_i_en   ;
+wire          mid_type_r_en   ;
+wire          mid_type_j_en   ;
 wire [4:0]    mid_rs2         ;
 wire [4:0]    mid_rs1         ;
 wire [4:0]    mid_rd          ;
@@ -85,7 +89,8 @@ wire [11:0]   mid_imm_type_i  ;
 wire [11:0]   mid_imm_type_s  ;
 wire [11:0]   mid_imm_type_b  ;
 wire [19:0]   mid_imm_type_u  ;
-wire [18:0]   mid_imm_type_j  ;
+wire [19:0]   mid_imm_type_j  ;
+wire          mid_stall       ;
 // Core cycle counter signals
 wire [31:0]   mid_inst        ;
 wire [3:0]    mid_cycle_cnt   ;
@@ -167,6 +172,10 @@ switch_mcu_decoder switch_mcu_decoder_dut (
 .out_csrrwi     (mid_csrrwi     ),
 .out_csrrsi     (mid_csrrsi     ),
 .out_csrrci     (mid_csrrci     ),
+.out_type_u_en  (mid_type_u_en  ),
+.out_type_i_en  (mid_type_i_en  ),
+.out_type_r_en  (mid_type_r_en  ),
+.out_type_j_en  (mid_type_j_en  ),
 .out_rs2        (mid_rs2        ),
 .out_rs1        (mid_rs1        ),
 .out_rd         (mid_rd         ),
@@ -174,7 +183,8 @@ switch_mcu_decoder switch_mcu_decoder_dut (
 .out_imm_type_s (mid_imm_type_s ),
 .out_imm_type_b (mid_imm_type_b ),
 .out_imm_type_u (mid_imm_type_u ),
-.out_imm_type_j (mid_imm_type_j )
+.out_imm_type_j (mid_imm_type_j ),
+.in_stall       (mid_stall      )
 );
 
 switch_mcu_alu_top switch_mcu_alu_top_dut (
@@ -231,6 +241,10 @@ switch_mcu_alu_top switch_mcu_alu_top_dut (
 .in_rs2         (mid_rs2        ),
 .in_rs1         (mid_rs1        ),
 .in_rd          (mid_rd         ),
+.in_type_u_en   (mid_type_u_en  ),
+.in_type_i_en   (mid_type_i_en  ),
+.in_type_r_en   (mid_type_r_en  ),
+.in_type_j_en   (mid_type_j_en  ),
 .in_imm_type_i  (mid_imm_type_i ),
 .in_imm_type_s  (mid_imm_type_s ),
 .in_imm_type_b  (mid_imm_type_b ),
@@ -238,7 +252,8 @@ switch_mcu_alu_top switch_mcu_alu_top_dut (
 .in_imm_type_j  (mid_imm_type_j ),
 .in_pc_reg      (mid_pc_reg     ),
 .out_pc_override(mid_pc_override),
-.out_pc_write   (mid_pc_write   )
+.out_pc_write   (mid_pc_write   ),
+.out_stall      (mid_stall      )
 );
 
 // initial begin
